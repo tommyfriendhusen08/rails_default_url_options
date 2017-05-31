@@ -150,7 +150,7 @@ if defined?(Rails)
 
     if defined?(::ActionController::Base)
       ::ActionController::Base.module_eval do
-        prepend_before_filter do |controller|
+        prepend_before_action do |controller|
           unless controller.respond_to?(:configure_default_url_options!)
             unless DefaultUrlOptions.configured?
               request = controller.send(:request)
